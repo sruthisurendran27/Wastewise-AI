@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>WasteWise AI — Dispose Responsibly</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body data-page="scan">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">♻️</span> WasteWise <span style="font-weight:600; color:var(--ink-soft)">AI</span></a>
+    <div class="desktop-nav"></div>
+    <div class="topbar-right">
+      <span class="user-chip" id="userChip" style="display:none"></span>
+      <a class="icon-btn" id="logoutBtn" href="#" style="display:none">Logout</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="hero">
+      <span class="emoji">🗑️</span>
+      <h1>Dispose Responsibly</h1>
+      <p class="tagline">Do it the right way — for you and the planet.</p>
+    </div>
+
+    <div id="hazardWarning" class="alert alert-danger" style="display:none">
+      ⚠️ <strong>Special handling recommended.</strong> Follow the instructions below carefully — do not throw this in regular trash or reuse it casually.
+    </div>
+
+    <div class="spinner-wrap" id="loading">
+      <div class="spinner"></div>
+      <p>Loading disposal guidance…</p>
+    </div>
+
+    <div id="content" style="display:none">
+      <div class="card" id="guideCard"></div>
+      <div class="card safety-checklist" id="safetyChecklist" style="display:none"></div>
+
+      <div class="card card-center">
+        <p><strong>Handled this item responsibly?</strong></p>
+        <button class="btn btn-primary btn-lg btn-block" id="confirmDisposedBtn">✅&nbsp; YES — +10 points</button>
+      </div>
+    </div>
+
+    <div id="errorBox" class="alert alert-danger" style="display:none">
+      <p id="errorMsg"></p>
+      <a class="btn btn-primary" href="result.html">Back to result</a>
+    </div>
+
+    <footer>♻️ WasteWise AI — give your waste a second life</footer>
+  </main>
+
+  <nav class="bottom-nav" id="bottomNav"></nav>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/state.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/demo.js"></script>
+  <script src="/js/shell.js"></script>
+  <script src="/js/sw-register.js"></script>
+  <script src="/js/dispose.js"></script>
+</body>
+</html>

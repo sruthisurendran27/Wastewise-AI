@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>WasteWise AI — Sign in</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">♻️</span> WasteWise <span style="font-weight:600; color:var(--ink-soft)">AI</span></a>
+    <div class="topbar-right">
+      <a class="icon-btn" href="index.html">← Back</a>
+    </div>
+  </header>
+
+  <main class="main" style="max-width:460px">
+    <div class="hero">
+      <span class="emoji">♻️</span>
+      <h1>Welcome to WasteWise AI</h1>
+      <p class="tagline">Track your points and your environmental impact.</p>
+    </div>
+
+    <div class="card">
+      <div id="formError" class="alert alert-danger" style="display:none"></div>
+
+      <div id="loginForm">
+        <h3 style="margin-top:0">Sign in</h3>
+        <div class="field">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" class="input" type="email" autocomplete="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" class="input" type="password" autocomplete="current-password" placeholder="••••••••" />
+        </div>
+        <button class="btn btn-primary btn-block btn-lg" id="loginBtn">Sign in</button>
+        <p style="margin-top:14px; text-align:center; font-size:.9rem">
+          New here? <a href="#" id="showRegister">Create an account</a>
+        </p>
+      </div>
+
+      <div id="registerForm" style="display:none">
+        <h3 style="margin-top:0">Create account</h3>
+        <div class="field">
+          <label for="regName">Name</label>
+          <input id="regName" class="input" type="text" autocomplete="name" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="regEmail">Email</label>
+          <input id="regEmail" class="input" type="email" autocomplete="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="regPassword">Password</label>
+          <input id="regPassword" class="input" type="password" autocomplete="new-password" placeholder="At least 6 characters" />
+        </div>
+        <button class="btn btn-primary btn-block btn-lg" id="registerBtn">Create account</button>
+        <p style="margin-top:14px; text-align:center; font-size:.9rem">
+          Already have an account? <a href="#" id="showLogin">Sign in</a>
+        </p>
+      </div>
+    </div>
+
+    <footer>♻️ WasteWise AI — give your waste a second life</footer>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/state.js"></script>
+  <script src="/js/sw-register.js"></script>
+  <script>
+    (function () {
+      const errorEl = qs("#formError");
+      function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.style.display = "block";
+      }
+      function hideError() { errorEl.style.display = "none"; }
+      function switchForm(showRegister) {
+        qs("#loginForm").style.display = showRegister ? "none" : "block";
+        qs("#registerForm").style.display = showRegister ? "block" : "none";
+        hideError();
+      }
+      qs("#showRegister").addEventListener("click", e => { e.preventDefault(); switchForm(true); });
+      qs("#showLogin").addEventListener("click", e => { e.preventDefault(); switchForm(false); });
+
+      async function handleLogin() {
+        const email = qs("#loginEmail").value.trim();
+        const password = qs("#loginPassword").value;
+        if (!email || !password) return showError("Please enter your email and password.");
+        try {
+          const data = await API.request("/auth/login", { method: "POST", body: { email, password } });
+          API.setToken(data.access_token);
+          API.setUser(data.user);
+          window.location.href = "index.html";
+        } catch (err) { showError(err.message); }
+      }
+
+      async function handleRegister() {
+        const name = qs("#regName").value.trim();
+        const email = qs("#regEmail").value.trim();
+        const password = qs("#regPassword").value;
+        if (!name || !email || !password) return showError("Please fill in all fields.");
+        if (password.length < 6) return showError("Password must be at least 6 characters.");
+        try {
+          const data = await API.request("/auth/register", { method: "POST", body: { name, email, password } });
+          API.setToken(data.access_token);
+          API.setUser(data.user);
+          window.location.href = "index.html";
+        } catch (err) { showError(err.message); }
+      }
+
+      qs("#loginBtn").addEventListener("click", handleLogin);
+      qs("#registerBtn").addEventListener("click", handleRegister);
+      qs("#loginPassword").addEventListener("keydown", e => { if (e.key === "Enter") handleLogin(); });
+
+      if (API.getToken()) window.location.href = "index.html";
+    })();
+  </script>
+</body>
+</html>

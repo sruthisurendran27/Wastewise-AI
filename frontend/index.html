@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/assets/icons/icon-192.png" />
+  <title>WasteWise AI — Turn Waste Into Worth</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body data-page="home">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">♻️</span> WasteWise <span style="font-weight:600; color:var(--ink-soft)">AI</span></a>
+    <div class="desktop-nav"></div>
+    <div class="topbar-right">
+      <span class="user-chip" id="userChip" style="display:none"></span>
+      <a class="icon-btn" id="logoutBtn" href="#" style="display:none">Logout</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero -->
+    <section class="hero-panel">
+      <span class="eyebrow">♻️ Smart Waste Intelligence</span>
+      <h1>Turn Waste Into Worth.</h1>
+      <p>Scan your waste. Discover what it is, what it can become, and where it can go.</p>
+      <div class="hero-visual" aria-hidden="true">
+        <span class="tile">🧴</span><span class="arrow">→</span>
+        <span class="tile">💡</span><span class="arrow">→</span>
+        <span class="tile">🌱</span>
+      </div>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>Breaking News: Scan. Reuse. Recycle. Repeat.</span>
+          <span>Special report: editorial clarity for waste decisions.</span>
+          <span>Edition note: turn waste into worth with one sharp action.</span>
+          <span>Breaking News: Scan. Reuse. Recycle. Repeat.</span>
+          <span>Special report: editorial clarity for waste decisions.</span>
+          <span>Edition note: turn waste into worth with one sharp action.</span>
+        </div>
+      </div>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary btn-lg" href="scan.html">📸&nbsp; Scan Waste</a>
+        <a class="btn btn-ghost btn-lg" href="scan.html?mode=upload">🖼️&nbsp; Upload Image</a>
+      </div>
+    </section>
+
+    <!-- Primary actions -->
+    <div class="big-actions">
+      <a class="big-action" href="scan.html">
+        <span class="icon">📸</span>
+        <span>
+          <span class="title">Scan Waste</span>
+          <span class="sub">AI identifies the item instantly</span>
+        </span>
+        <span class="chev">›</span>
+      </a>
+      <a class="big-action" href="scan.html?mode=upload">
+        <span class="icon">🖼️</span>
+        <span>
+          <span class="title">Upload Photo</span>
+          <span class="sub">Share an image from your library</span>
+        </span>
+        <span class="chev">›</span>
+      </a>
+      <a class="big-action" href="recycle.html">
+        <span class="icon">📍</span>
+        <span>
+          <span class="title">Find Nearby Recyclers</span>
+          <span class="sub">Recycling, reuse &amp; collection points</span>
+        </span>
+        <span class="chev">›</span>
+      </a>
+    </div>
+
+    <!-- Demo hook -->
+    <a class="demo-strip" href="scan.html#demo" id="demoModeLink">
+      <span class="demo-pulse"></span>
+      <span><strong>No camera handy?</strong> Run the <em>Plastic Bottle → Worth</em> demo flow in one tap.</span>
+      <span class="chev">›</span>
+    </a>
+
+    <!-- Feature cards -->
+    <h3 class="section-title"><span class="num">✦</span> Why WasteWise AI</h3>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon f-icon-green">♻️</div>
+        <h3>Identify</h3>
+        <p>Know exactly what you're dealing with — material, category &amp; condition.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon f-icon-amber">💡</div>
+        <h3>Create Value</h3>
+        <p>Discover useful products you can make from your waste.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon f-icon-blue">📍</div>
+        <h3>Find Nearby</h3>
+        <p>Connect with recycling and reuse facilities around you.</p>
+      </div>
+    </div>
+
+    <!-- Mini impact -->
+    <div class="card" id="miniStats" style="margin-top:22px; background:var(--grad-soft)">
+      <h3 style="margin-top:0">🌱 Your Sustainability Impact</h3>
+      <div id="miniStatsContent">
+        <p style="color:var(--ink-soft); font-size:.92rem">Sign in to track your points and environmental footprint.</p>
+        <a class="btn btn-primary btn-sm" href="login.html" style="margin-top:8px">View your impact →</a>
+      </div>
+    </div>
+
+    <footer>♻️ WasteWise AI — give your waste a second life</footer>
+  </main>
+
+  <nav class="bottom-nav" id="bottomNav"></nav>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/state.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/demo.js"></script>
+  <script src="/js/shell.js"></script>
+  <script src="/js/sw-register.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

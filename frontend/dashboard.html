@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>WasteWise AI — My Impact</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body data-page="profile">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">♻️</span> WasteWise <span style="font-weight:600; color:var(--ink-soft)">AI</span></a>
+    <div class="desktop-nav"></div>
+    <div class="topbar-right">
+      <span class="user-chip" id="userChip" style="display:none"></span>
+      <a class="icon-btn" id="logoutBtn" href="#" style="display:none">Logout</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="hero">
+      <span class="emoji">🏆</span>
+      <h1>Your WasteWise Impact</h1>
+      <p class="tagline">Every action creates real change.</p>
+    </div>
+
+    <div class="spinner-wrap" id="loading">
+      <div class="spinner"></div>
+      <p>Loading your stats…</p>
+    </div>
+
+    <div id="content" style="display:none">
+      <div class="card">
+        <div class="card-row">
+          <h3 style="margin:0">Saved ideas</h3>
+          <a class="btn btn-outline btn-sm" href="profile.html">View all</a>
+        </div>
+        <div id="savedIdeasDashboard"><p class="time-stamp">No saved ideas yet.</p></div>
+      </div>
+
+      <!-- Points hero -->
+      <div class="points-hero">
+        <div class="circle-progress" id="impactRing">
+          <svg viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" class="ring-bg" />
+            <circle cx="60" cy="60" r="52" class="ring-fg" id="ringFg"/>
+          </svg>
+          <div class="ring-center">
+            <span class="ring-pct" id="divertPct">0%</span>
+            <span class="ring-sub">diverted</span>
+          </div>
+        </div>
+        <div class="points-chips">
+          <span class="pt-chip" id="ptReused">♻️ 0</span>
+          <span class="pt-chip" id="ptRecycled">♻️ 0</span>
+          <span class="pt-chip" id="ptDiverted">🌱 0</span>
+          <span class="pt-chip">🏆 <span id="pointsValue">0</span> pts</span>
+        </div>
+      </div>
+
+      <!-- Impact grid -->
+      <h3 class="section-title"><span class="num">📊</span> Environmental metrics</h3>
+      <div class="stat-grid">
+        <div class="stat"><div class="value" id="statReused">0</div><div class="label">♻️ Items reused</div></div>
+        <div class="stat"><div class="value" id="statRecycled">0</div><div class="label">♻️ Items recycled</div></div>
+        <div class="stat"><div class="value" id="statDisposed">0</div><div class="label">🗑️ Items disposed</div></div>
+        <div class="stat"><div class="value" id="statDiverted">0</div><div class="label">🌱 Waste diverted</div></div>
+      </div>
+
+      <!-- Value created -->
+      <div class="card">
+        <div class="card-row">
+          <span>💰 Potential value created</span>
+          <span id="valueCreatedText" class="value-amount">₹0–₹0</span>
+        </div>
+      </div>
+
+      <!-- Weekly / monthly -->
+      <div class="card">
+        <h3 style="margin-top:0">📈 Period activity</h3>
+        <div class="period-cards">
+          <div class="period-card">
+            <span class="period-label">THIS WEEK</span>
+            <span class="period-value" id="weekDiverted">0</span>
+            <span class="period-sub">items diverted</span>
+          </div>
+          <div class="period-card">
+            <span class="period-label">THIS MONTH</span>
+            <span class="period-value" id="monthDiverted">0</span>
+            <span class="period-sub">items diverted</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent activity -->
+      <div class="card">
+        <h3 style="margin-top:0">📜 Recent activity</h3>
+        <div id="activityList"><p class="time-stamp">No activity yet. Scan something!</p></div>
+      </div>
+
+      <a class="btn btn-primary btn-lg btn-block" href="scan.html">📸&nbsp; Scan another item</a>
+    </div>
+
+    <footer>♻️ WasteWise AI — give your waste a second life</footer>
+  </main>
+
+  <nav class="bottom-nav" id="bottomNav"></nav>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/state.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/demo.js"></script>
+  <script src="/js/shell.js"></script>
+  <script src="/js/sw-register.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

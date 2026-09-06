@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>WasteWise AI - Scan History</title>
+</head>
+<body data-page="history">
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">Waste</span> WasteWise <span style="font-weight:600; color:var(--ink-soft)">AI</span></a><div class="desktop-nav"></div><div class="topbar-right"><span class="user-chip" id="userChip" style="display:none"></span><a class="icon-btn" id="logoutBtn" href="#" style="display:none">Logout</a></div></header>
+  <main class="main">
+    <div class="hero"><span class="emoji">History</span><h1>Your Scan History</h1><p class="tagline">A quick record of every waste decision.</p></div>
+    <div class="filter-bar history-filters" aria-label="Filter scan history"><button class="chip active" data-filter="all">All</button><button class="chip" data-filter="Recyclable">Recyclable</button><button class="chip" data-filter="Organic/Compostable">Organic</button><button class="chip" data-filter="Hazardous/Special">Special handling</button></div>
+    <div id="loading" class="spinner-wrap"><div class="spinner"></div><p>Loading your scans...</p></div>
+    <div id="historyList" class="history-list" style="display:none"></div>
+    <footer>WasteWise AI - give your waste a second life</footer>
+  </main>
+  <nav class="bottom-nav" id="bottomNav"></nav>
+  <script src="/js/api.js"></script><script src="/js/auth.js"></script><script src="/js/state.js"></script><script src="/js/nav.js"></script><script src="/js/demo.js"></script><script src="/js/shell.js"></script><script src="/js/sw-register.js"></script><script src="/js/history.js"></script>
+</body>
+</html>

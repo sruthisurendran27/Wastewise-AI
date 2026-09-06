@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>WasteWise AI — Profile</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body data-page="profile">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">♻️</span> WasteWise <span style="font-weight:600; color:var(--ink-soft)">AI</span></a>
+    <div class="desktop-nav"></div>
+    <div class="topbar-right">
+      <span class="user-chip" id="userChip" style="display:none"></span>
+      <a class="icon-btn" id="logoutBtn" href="#" style="display:none">Logout</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="spinner-wrap" id="loading">
+      <div class="spinner"></div>
+      <p>Loading your profile…</p>
+    </div>
+
+    <div id="content" style="display:none">
+      <!-- Level card -->
+      <div class="card level-card">
+        <span class="eyebrow" style="background:var(--p-100); color:var(--p-800)">WasteWise Level</span>
+        <div class="level-badge" id="levelEmoji">🥉</div>
+        <h2 id="userLevel">Waste Explorer</h2>
+        <p class="time-stamp" id="levelSub">Keep going — you're on your way!</p>
+        <div class="level-progress">
+          <div class="level-track"><div class="level-fill" id="levelFill"></div></div>
+          <span class="level-nums" id="levelNums">0 / 50 XP</span>
+        </div>
+      </div>
+
+      <!-- Account info -->
+      <div class="card">
+        <h3 style="margin-top:0">Account</h3>
+        <div class="info-rows">
+          <div class="info-row"><span>Name</span><b id="userName">—</b></div>
+          <div class="info-row"><span>Email</span><b id="userEmail" style="font-size:.9rem">—</b></div>
+          <div class="info-row"><span>WasteWise Points</span><b id="userPoints">0</b></div>
+          <div class="info-row"><span>Items scanned</span><b id="userScans">0</b></div>
+          <div class="info-row"><span>Joined</span><b id="userJoined">—</b></div>
+        </div>
+      </div>
+
+      <!-- Impact stats -->
+      <div class="stat-grid">
+        <div class="stat"><div class="value" id="statsReused">0</div><div class="label">♻️ Reused</div></div>
+        <div class="stat"><div class="value" id="statsRecycled">0</div><div class="label">♻️ Recycled</div></div>
+        <div class="stat"><div class="value" id="statsDisposed">0</div><div class="label">🗑️ Disposed</div></div>
+        <div class="stat"><div class="value" id="statsDiverted">0</div><div class="label">🌱 Diverted</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-row">
+          <span>💰 Potential value created</span>
+          <span id="potentialValue" class="value-amount">₹0–₹0</span>
+        </div>
+      </div>
+
+      <!-- Saved ideas -->
+      <div class="card">
+        <h3 style="margin-top:0">🔖 Saved ideas</h3>
+        <div id="savedIdeas"><p class="time-stamp">Nothing saved yet — tap <em>Save Idea</em> on any DIY card.</p></div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Saved recyclers</h3>
+        <div id="savedRecyclers"><p class="time-stamp">Save a trusted recycler from the Nearby page.</p></div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="card">
+        <h3 style="margin-top:0">🎖️ Achievements</h3>
+        <div id="achievements" class="achievement-grid">
+          <span class="ach">♻️ First scan</span>
+          <span class="ach locked">💡 First idea</span>
+          <span class="ach locked">🌱 10 items diverted</span>
+          <span class="ach locked">🏅 50 points</span>
+        </div>
+      </div>
+
+      <div style="display:grid; gap:12px">
+        <a class="btn btn-primary btn-block" href="scan.html">📸 Scan more waste</a>
+        <a class="btn btn-outline btn-block" href="dashboard.html">📊 View dashboard</a>
+        <button class="btn btn-outline btn-block" id="logoutBtnMain">🚪 Log out</button>
+      </div>
+    </div>
+
+    <footer>♻️ WasteWise AI — give your waste a second life</footer>
+  </main>
+
+  <nav class="bottom-nav" id="bottomNav"></nav>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/state.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/demo.js"></script>
+  <script src="/js/shell.js"></script>
+  <script src="/js/sw-register.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>
