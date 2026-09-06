@@ -1,5 +1,5 @@
 /* WasteWise AI service worker: cache the app shell, network-first for API calls. */
-const CACHE_NAME = "wastewise-ai-v14";
+const CACHE_NAME = "wastewise-ai-v15";
 const APP_SHELL = [
   "/",
   "/login.html",
