@@ -4,7 +4,7 @@ from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.core.config import settings
@@ -51,9 +51,9 @@ async def health() -> dict:
 
 
 @app.get("/", include_in_schema=False)
-async def root() -> RedirectResponse:
-    """Make authentication the default entry point for the product."""
-    return RedirectResponse(url="/login.html", status_code=307)
+async def root() -> FileResponse:
+    """Serve login directly so the product opens at authentication by default."""
+    return FileResponse(FRONTEND_DIR / "login.html", media_type="text/html")
 
 
 app.include_router(auth.router, prefix="/api", tags=["auth"])
